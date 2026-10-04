@@ -10,9 +10,9 @@
     "dev": "concurrently -k \"vite\" \"wait-on tcp:5173 && cross-env POINTER_DEV=1 electron .\"",
     "build:renderer": "vite build",
     "start": "npm run build:renderer && electron .",
-    "dist:win": "npm run build:renderer && node scripts/prepare-win.js && electron-builder --win --x64",
-    "dist:linux": "npm run build:renderer && electron-builder --linux",
-    "dist:mac": "npm run build:renderer && electron-builder --mac"
+    "dist:win": "npm run build:renderer && node scripts/prepare-win.js && electron-builder --win --x64 --publish never",
+    "dist:linux": "npm run build:renderer && electron-builder --linux --publish never",
+    "dist:mac": "npm run build:renderer && electron-builder --mac --publish never"
   },
   "dependencies": {
     "@lydell/node-pty": "^1.2.0-beta.15",
