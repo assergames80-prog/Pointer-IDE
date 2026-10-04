@@ -66,7 +66,7 @@ npm run dist:mac     # macOS .dmg
 npm run dist:linux   # Linux AppImage
 ```
 
-Building the Windows `.exe` on Linux or macOS requires [Wine](https://www.winehq.org/), which is used to stamp the icon and version info into the executable. `scripts/prepare-win.js` downloads the prebuilt Windows terminal (node-pty) binaries automatically.
+Building the Windows `.exe` on Linux or macOS requires [Wine](https://www.winehq.org/), which is used to stamp the icon and version info into the executable. The NSIS installer step also needs 32-bit Wine (on Debian/Ubuntu: `dpkg --add-architecture i386 && apt install wine32:i386`). `scripts/prepare-win.js` downloads the prebuilt Windows terminal (node-pty) binaries automatically.
 
 The **Build** GitHub Actions workflow (`.github/workflows/build.yml`) builds the Windows installer on a Windows runner. Pushing a tag like `v1.0.0` publishes a GitHub release with the `.exe` files attached.
 
